@@ -1,0 +1,41 @@
+WORKING WITH ANOTHER DEVELOPER'S REPO.
+STEPS
+1) Fork the repo to your own repo
+2) Then go to your repo of the folked repo, clone it by copying the http url.
+3) Open gitbash in a folder you want to clone in the repo
+4) In git, type
+git clone ..........
+The dash is where you paste the url and click enter
+5) cd into the cloned folder.
+6) Create a new branch off the master branch you just clone. Remember you cant work on the master but work on your own branch.
+7) git checkout -b ..........
+...... is the name of your branch
+ Another way is
+git branch ...... eg git branch JSValidation
+git checkout........ new of your branch
+8) At this moment, your are now in your branch and can start making changes to your code
+9) Check your changes(optional)
+git diff
+10)git add .
+11) git commit -m "type your changes here"
+12) git log
+13) now push to the origin remote(github you cloned from in your personal repo) this branch
+14) git push origin .......
+.... means name of your branch eg
+git push origin JSValidation
+15) Go to the repo in github, change the master to the branch to see all changes
+16) When you pushed, your changes only went to your github repo and not to the github repo of the original owner of the file
+17) CREATE A PUSH REQUEST
+In your cloned repo, click "Create Pull Request". Then it will show you the original master on the left and your master on the right. Click your master on the right and change it to the branch
+18) Now click on "CREATE PULL REQUEST" again and fill the PR form.
+19) This takes you to the original owner page
+
+ORIGIN AND UPSTREAM
+Origin is the forked repo while Upstream is the original repo you forked from.
+To get updates from Upstream, do git fetch
+
+SQUASHING
+Combining small commits to one commit eg
+
+git rebase -i HEAD ~ 3
+HEAD to the 3 is: 3 before head and great grandparent of the commit we on. 3 there is an example. it could be any number of commits you want to squash

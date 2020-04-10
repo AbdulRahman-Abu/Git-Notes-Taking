@@ -1,5 +1,3 @@
-Here I share all my learning on GIT and GITHUB
-
 WORKING WITH ANOTHER DEVELOPER'S REPO.
 STEPS
 1) Fork the repo to your own repo
@@ -12,28 +10,47 @@ The dash is where you paste the url and click enter
 6) Create a new branch off the master branch you just clone. Remember you cant work on the master but work on your own branch.
 7) git checkout -b ..........
 ...... is the name of your branch
- Another way is
+ Another way isgit 
 git branch ...... eg git branch JSValidation
-git checkout........ new of your branch
+git checkout........ new of your branchgit  
 8) At this moment, your are now in your branch and can start making changes to your code
 9) Check your changes(optional)
 git diff
+git status.....to check the files not yet staged or added to the staging area
 10)git add .
+Using the dot adds all the files unstaged to the staging area. You can use git filename to add a single file ed
+git add filename1
 11) git commit -m "type your changes here"
 12) git log
-13) now push to the origin remote(github you cloned from in your personal repo) this branch
+13) now push to the origin remote server(github online you cloned from) this branch
 14) git push origin .......
 .... means name of your branch eg
 git push origin JSValidation
 15) Go to the repo in github, change the master to the branch to see all changes
 16) When you pushed, your changes only went to your github repo and not to the github repo of the original owner of the file
+NOTE: As you continue editing a personal file, you can use git push only.
 17) CREATE A PUSH REQUEST
 In your cloned repo, click "Create Pull Request". Then it will show you the original master on the left and your master on the right. Click your master on the right and change it to the branch
 18) Now click on "CREATE PULL REQUEST" again and fill the PR form.
 19) This takes you to the original owner page
+20) Git Pull: This is to pull new changes from the remote(github online) to the local.
+git pull
+git pull remote branch
+NEVER WORK ON master branch. ALWAYS CREATE A BRANCH
+21) git branch: This is used to check branches available. The branch will the asterisk is the current branch you are on
+22) Pull Request: After using git push to push to github, go to the github branch and click: Compare and Pull Request. Add a note so your colleagues can know the new edits/addition done, then click: Create Pull Request.
+Your colleague will see the Pull Request,review the changes and approve/disapprove, then merge pull request to the orignal master. Then delete the branch. Now your colleague can go to her laptop and on master branch to: git pull the new changes
+23) Git merge: Use to merge master to your current branch you on eg
+git merge currentbranch
+If there is a merge conflict,go to your code to see the diff between the merge and your current branch. Take out the the code not needed and start with git add, commit etc till git merge currentbranch
+NOTE: ERROR IN git push
+The current branch conflict has no upstream branch: Use the recommendation from git or use git push origin branchname eg
+git push origin conflictbranch
+ORIGIN: this is the online forked repo
+conflict is the branch you are pushing the update to
 
 ORIGIN AND UPSTREAM
-Origin is the forked repo while Upstream is the original repo you forked from.
+Origin is the forked repo(local) while Upstream is the original repo you forked from(online).
 To get updates from Upstream, do git fetch
 
 SQUASHING
@@ -41,3 +58,58 @@ Combining small commits to one commit eg
 
 git rebase -i HEAD ~ 3
 HEAD to the 3 is: 3 before head and great grandparent of the commit we on. 3 there is an example. it could be any number of commits you want to squash
+
+WEBSITE WITH GIT PAGES
+To have a website using git, in your inner repo file, click SETTINGS, scroll to GITHUB PAGES and select MASTER BRANCH and save. Then scroll down again to github pages to see your website link. Also you can edit the description of your project and add a website
+
+
+October 15th 2019.
+
+TASK
+
+Today I am starting a new training on Introduction to SUSE Linux Enterprise Server. 
+
+Also I am would be working with a new team on HNG 6 Intership. We just entered stage 6 for those that scaled through.
+
+Also I am studying GIT on Open Classroom
+
+
+
+ACHIEVED MILESTONES
+
+GIT QUIZ
+How many commits? 10 commits
+How many trees? 10
+How many blobs?10
+
+Git fetch. I had to checkout to master branch to fetch any new updates from remote repo.
+Git merge. To merge the branch to master, I had to be in the master branch and use the command below to merge branch to master
+git merge test
+
+Git Rebase.
+Pick the hash commit after the problem, then
+git rebase -i ......
+...means paste the first 6 hash of the commit
+once the editor opens, remove the line you want to move,go up and paste it in the new place.
+for commits with typo, replace the "pick" keyword with "reword" or r.
+Then save. After saving, the rebash will start on stop where you want to make amends, make the amends, save and quit
+
+REWRITING A COMMIT MESSAGE
+git commit --amend -m "put your message here"
+This is basically to edit the very last commit
+
+But to edit any commit in any role,use git interactive rebase
+git rebase -i HEAD~2
+meaning HEAD:pointer
+~tinder
+2:any no here. this is the of commits ago you want to make changes to...2 means to commits agoto
+
+
+Hello team. Here is a way to update your forked repo without git command lines.
+Go to your forked repo (codes).
+Just before the files, you will see the part that says "This branch is 5 commits behind hngi:master"
+Click on 'Pull request.
+You will see "There isn't anything to compare" Click on "Try switching the base for your comparison"
+It wil switch the comparison and show you the updated files on main repo.
+Add a title (if there is none) and click on create pull request. Then click on merge and confirm merge.
+Your forked repo will be updated but it will be 1 commit ahead of the master branch
